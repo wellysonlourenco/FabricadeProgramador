@@ -1,0 +1,16 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.calculadora {
+    width: 50%;
+    
+}
+
+
+.calculadora div{
+    text-align: center;
+
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora IMC</title>
+
+<script>
+    function Calcular(){
+        var n1 = parseFloat(document.getElementById("input1").value)
+        var n2 = parseFloat(document.getElementById("input2").value)
+
+     
+        var resultado = n1/(n2*n2)
+    
+            alert(resultado)
+    }
+
+
+
+</script>
+
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="calculadora">
+        <form name="calculadora">
+            <div>
+                <h1>Calculadora IMC</h1>
+            </div>
+            <div>
+                <label for="peso">Peso</label>
+                <label for="altura">Altura</label>
+            </div>
+            <div>
+                <input type="number" name="numero1" id="input1" placeholder="em kg">
+                <input type="number" name="numero1" id="input2" placeholder="em metros">
+            </div>
+            <div>
+                <button type="button" onclick="window.Calcular()">Calcular IMC</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
