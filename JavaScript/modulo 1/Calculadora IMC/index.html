@@ -13,10 +13,22 @@
 
      
         var resultado = n1/(n2*n2)
-    
-            alert(resultado)
-    }
-
+            if (resultado < 18.5 ) {
+            alert("Você está magro com esse indice: " + resultado); }
+            }
+            else (resultado>= 18.5 && resultado <= 25){
+            alert("Você está normal com esse indice: " + resultado);
+            }
+            else (resultado> 25 && resultado <= 29.9){
+            alert("Você está com sobre peso com esse indice: " + resultado);
+            }
+            else (resultado > 29.9 && resultado <= 39.9){
+            alert("Você está com obesidade com esse indice: " + resultado)
+            }
+            else (resultado > 39.9){
+            alert("Você estácom obesidade grave com esse indice: " + resultado);
+            }
+}
 
 
 </script>
