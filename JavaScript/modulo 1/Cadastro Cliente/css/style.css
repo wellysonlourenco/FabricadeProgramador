@@ -1,0 +1,54 @@
+body{
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+h1{
+    margin: 0px;
+}
+
+nav{
+    background-color: rgb(9, 163, 198);
+    width: 30%;
+    float: left;
+    height: 100%;
+    padding: 20px 0px;
+    text-align: center;
+    color: white;
+    /*posição fixa*/
+    position: fixed;
+    box-shadow: 5px 0px 10px gray;
+    box-sizing: border-box;
+    /* se o conteudo for maior que a caixa (texto diminui com a resolução , oculta o menu(=) */
+    overflow: hidden;
+
+}
+
+nav ul {
+    margin: 0%;
+    padding: 0%;
+
+}
+
+nav li {
+    padding: 10px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+/* disparar uma ação quando passar o mouse sobre (disparar) */
+nav li:hover {
+    background-color: rgb (13 , 101, 021);
+    cursor: pointer;
+}
+
+
+
+main{
+    width: 70%;
+    float: right;
+}
