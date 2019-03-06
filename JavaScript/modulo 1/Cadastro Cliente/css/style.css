@@ -19,6 +19,7 @@ nav{
     position: fixed;
     box-shadow: 5px 0px 10px gray;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 nav ul{
@@ -46,4 +47,63 @@ nav li:hover{
 main{
     width: 70%;
     float: right;
+}
+
+main h1 {
+    margin: 5% 0% 5% 0%;
+    text-align: center;
+}
+
+.cadastro{
+    text-align: center;
+   
+}
+
+.cadastro input{
+    width: 60%;
+    margin-bottom: 10px;
+    padding: 5px;
+    /* border-radius: 10px; */
+}
+
+.sexo {
+    text-align: center;
+    margin: 0% 0% 3% 0%;
+}
+
+.sexo label{
+    margin: 0% 0% 0% 2%;
+}
+
+.sexo input{
+    margin: 0% 0% 0% 0%;
+}
+
+fieldset {
+    margin: 1% 5% 4% 5%;
+}
+
+.localizacao {
+    margin: 0% 0% 1% 5%;
+}
+
+.foto {
+    margin: 0% 0% 1% 5%;
+}
+
+.datanasc {
+    margin: 0% 0% 1% 5%;
+}
+
+.button{
+    text-align: center;
+}
+.button button{
+    padding: 10px;
+    width: 10%;
+    text-align: center;
+    background-color: rgb(28, 94, 218);
+    color: white;
+    font-size: 12pt;
+    margin: 5px;
 }

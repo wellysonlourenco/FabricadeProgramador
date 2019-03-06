@@ -15,7 +15,7 @@ nav{
     padding: 20px 0px;
     text-align: center;
     color: white;
-    position: relative;
+    position: fixed;
     box-shadow: 5px 0px 10px gray;
     box-sizing: border-box;
     overflow: hidden;
