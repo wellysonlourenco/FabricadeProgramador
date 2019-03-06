@@ -15,35 +15,44 @@ nav{
     padding: 20px 0px;
     text-align: center;
     color: white;
-    box-sizing: border-box;
-    position: fixed;
+    position: relative;
     box-shadow: 5px 0px 10px gray;
+    box-sizing: border-box;
     overflow: hidden;
+    white-space: nowrap;
+
 }
 
-nav ul{
-    margin: 0px;
-    padding: 0px;
+nav ul {
+    margin: 0%;
+    padding: 0%;
+
 }
 
-nav li{
+nav li {
     padding: 10px;
     list-style: none;
 }
 
-nav a{
+nav li:hover {
+    background-color: rgb(1, 66, 83);
+    cursor: pointer;
+}
+
+nav a {
     text-decoration: none;
     color: white;
 }
 
-nav li:hover{
-    background-color: rgb(13, 101, 121);
-    cursor: pointer;
-}
+
 
 
 
 main{
     width: 70%;
     float: right;
+    
+    text-align: center;
+    background-color: white;
+    
 }
