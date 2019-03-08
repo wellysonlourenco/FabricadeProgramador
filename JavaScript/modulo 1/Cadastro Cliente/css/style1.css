@@ -15,44 +15,136 @@ nav{
     padding: 20px 0px;
     text-align: center;
     color: white;
+    box-sizing: border-box;
     position: fixed;
     box-shadow: 5px 0px 10px gray;
-    box-sizing: border-box;
     overflow: hidden;
-    white-space: nowrap;
-
+    transition: width 1s;
 }
 
-nav ul {
-    margin: 0%;
-    padding: 0%;
-
+nav ul{
+    margin: 0px;
+    padding: 0px;
 }
 
-nav li {
+nav li{
     padding: 10px;
     list-style: none;
 }
 
-nav li:hover {
-    background-color: rgb(1, 66, 83);
-    cursor: pointer;
-}
-
-nav a {
+nav a{
     text-decoration: none;
     color: white;
 }
+/* tempo de transição apos colocar o mouse em cima */
+nav li:hover{
+    background-color: rgb(13, 101, 121);
+    cursor: pointer;
+    transition: background-color .1s;
+}
 
 
-
-
-
+/* 70% da tela */
 main{
     width: 70%;
     float: right;
-    
-    text-align: center;
-    background-color: white;
-    
+    transition: width 1s;
 }
+
+main h1{
+    text-align: center;
+}
+
+/* 70% dos 70% do main! */
+form {
+    width: 70%;
+    margin: auto;
+}
+
+form div {
+    margin: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="datetime-local"]{
+    width: 100%;
+    padding: 10px;
+}
+
+form button{
+    background-color: rgb(56, 56, 238);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+}
+
+form button:hover{
+    background-color: rgb(13, 101, 121);
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+img {
+    width: 20px;
+}
+
+.centro {
+    text-align: center;
+}
+
+.btn-menu-abrir{
+    opacity: 1;
+ }
+
+.btn-menu-fechar {
+     opacity: 0;
+ }
+
+            .menu-aberto{
+                width: 50%;
+            }
+
+            .main-menu-aberto{
+                width: 70%;
+            }
+
+            .menu-fechado{
+                width: 0%;
+            }
+
+            .main-menu-fechado{
+                width: 100%;
+            }
+
+ .exibirBotao{
+     opacity: 1;
+ }
+
+ .removerBotao{
+     opacity: 0;
+ }
+
+#divIMG {
+    margin: 10px 0px 10px 20px;
+}
+
+/* animações */
+@keyframes slide-message(){
+
+}
+
+@media(max-width: 600px){
+
+    nav{
+        width: 0%;
+    }
+    main{
+        width: 100%;
+    }
+
+    .btn-menu-fechar {
+        opacity: 1;
+    }
+   
+} 
