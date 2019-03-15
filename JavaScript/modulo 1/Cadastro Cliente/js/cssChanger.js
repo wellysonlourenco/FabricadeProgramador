@@ -12,6 +12,6 @@ function fecharMenu(){
     document.getElementById("menu").classList.remove("menu-aberto")
 }
 
-function fechaMensagem(){
-    document.querySelector("mensagens").classList.remove("show")
+function fecharMensagem(){
+    document.querySelector(".mensagens").classList.remove("show")
 }

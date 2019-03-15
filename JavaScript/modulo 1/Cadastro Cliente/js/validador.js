@@ -77,13 +77,14 @@ class Validador{
         
 
     
-        // para aparecer todos em um alerta
-        if (mensagem != ""){
+            
+            //IMPRESSÃO DA MENSAGEM NO ALERTA
+        if(mensagem != ""){
             // alert(mensagem)
             document.getElementById("textoMensagem").innerText = mensagem
+            document.querySelector('#mensagens').classList.add('show')
         }
-        document.querySelector("mensagens").classList.add("show")
-   
+
     }
 }
 

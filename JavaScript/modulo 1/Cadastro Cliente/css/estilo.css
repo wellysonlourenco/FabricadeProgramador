@@ -141,10 +141,12 @@ img {
 @keyframes slide-message {
     /* qual ponto ele vai (cima pra baixo)*/
     from{
-        transform: translate3d(0px , -50px, 0px)
-        opacity=0
-    }to{
-        transform: translate3d(0px, 0px, 0px)
+        transform: translate3d(0px, -50px, 0px);
+        opacity: 0;
+    }
+    to{
+        transform: translate3d(0px, 0px, 0px);
+        opacity: .8;
     }
 }
 
