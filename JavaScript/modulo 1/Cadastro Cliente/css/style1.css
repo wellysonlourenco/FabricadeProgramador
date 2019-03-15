@@ -1,13 +1,13 @@
-body {
+body{
     font-family: sans-serif;
     margin: 0px;
 }
 
-h1 {
+h1{
     margin: 0px;
 }
 
-nav {
+nav{
     background-color: rgb(9, 163, 198);
     width: 30%;
     float: left;
@@ -19,67 +19,69 @@ nav {
     position: fixed;
     box-shadow: 5px 0px 10px gray;
     overflow: hidden;
-    transition: width .8s;
+    transition: width 1s;
 }
 
-nav ul {
+nav ul{
     margin: 0px;
     padding: 0px;
 }
 
-nav li {
+nav li{
     padding: 10px;
     list-style: none;
 }
 
-nav a {
+nav a{
     text-decoration: none;
     color: white;
 }
-
-nav li:hover {
+/* tempo de transição apos colocar o mouse em cima */
+nav li:hover{
     background-color: rgb(13, 101, 121);
     cursor: pointer;
-    transition: background-color .3s;
+    transition: background-color .1s;
 }
 
-main {
+
+/* 70% da tela */
+main{
     width: 70%;
     float: right;
-    transition: width .8s;
+    transition: width 1s;
 }
 
-main h1 {
+main h1{
     text-align: center;
 }
 
+/* 70% dos 70% do main! */
 form {
     width: 70%;
     margin: auto;
 }
 
 form div {
-    margin: 20px 0px 20px 0px;
-    ;
+    margin: 20px;
 }
 
 form input[type="text"],
 form input[type="email"],
-form input[type="datetime-local"] {
+form input[type="datetime-local"]{
     width: 100%;
     padding: 10px;
 }
 
-form button {
-    background-color: rgb(9, 163, 198);
+form button{
+    background-color: rgb(56, 56, 238);
     border: none;
     padding: 10px 20px;
     color: white;
 }
 
 form button:hover{
-    cursor: pointer;
     background-color: rgb(13, 101, 121);
+    cursor: pointer;
     transition: background-color .3s;
 }
 
@@ -91,75 +93,58 @@ img {
     text-align: center;
 }
 
-.btn-menu-abrir {
+.btn-menu-abrir{
     opacity: 1;
-}
+ }
 
 .btn-menu-fechar {
-    opacity: 0;
+     opacity: 0;
+ }
+
+            .menu-aberto{
+                width: 50%;
+            }
+
+            .main-menu-aberto{
+                width: 70%;
+            }
+
+            .menu-fechado{
+                width: 0%;
+            }
+
+            .main-menu-fechado{
+                width: 100%;
+            }
+
+ .exibirBotao{
+     opacity: 1;
+ }
+
+ .removerBotao{
+     opacity: 0;
+ }
+
+#divIMG {
+    margin: 10px 0px 10px 20px;
 }
 
-.menu-aberto {
-    width: 30%;
-}
-
-.menu-fechado{
-    width: 0%;
-}
-
-#divImg {
-    margin: 20px 0px 20px 30px;
-}
-
-.mensagens{
-    display: none;
-    background-color: brown;
-    color: white;
-    padding: 20px;
-    opacity: 0.8;
-    position: absolute;
-    width: 60%;
-    /* animação */
-    animation: slide-message 1s;
+/* animações */
+@keyframes slide-message(){
 
 }
 
-.mensagens.show{
-    display: block;
-}
+@media(max-width: 600px){
 
-.mensagens img{
-    cursor: pointer;
-    width: 10px;
-    float: right;
-}
-
-
-
-
-
-@keyframes slide-message {
-    /* qual ponto ele vai (cima pra baixo)*/
-    from{
-        transform: translate3d(0px , -50px, 0px)
-        opacity=0
-    }to{
-        transform: translate3d(0px, 0px, 0px)
-    }
-}
-
-@media(max-width : 600px) {
-
-    nav {
+    nav{
         width: 0%;
     }
-
-    main {
+    main{
         width: 100%;
     }
 
     .btn-menu-fechar {
         opacity: 1;
     }
-}
-
+   
+} 
