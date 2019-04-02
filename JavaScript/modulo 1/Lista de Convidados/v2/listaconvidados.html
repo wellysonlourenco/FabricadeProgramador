@@ -11,28 +11,29 @@
 <body>
     <div id="card1" class="card">
         <div>
-            <h2>Adicionar Convidados</h2>
+            <h2>Adicionar Convidado</h2>
+
         </div>
         <div>
-            <input type="text" id="inputConvidado" placeholder="Nome do Convidado">
+            <input id = "inputConvidado" type="text" placeholder="Nome do Convidado">
         </div>
-        <div>
-            <button onclick="()">Adicionar</button>
-            <button onclick="()">Cancelar</button>
+
+        <div class="botoes">
+            <button onclick="gerenciador.adicionar()">Adicionar</button>
+        
+            <button onclick="gerenciador.limpar()">Cancelar</button>
         </div>
+
     </div>
-    <div id="card2" class="card">
+
+    <div id="card2" class="card"> 
         <h2>Lista de Convidados</h2>
 
-        <div id="lista">
-
+        <div  id="lista">
             
         </div>
 
     </div>
-
-
-
-    
 </body>
+
 </html>
