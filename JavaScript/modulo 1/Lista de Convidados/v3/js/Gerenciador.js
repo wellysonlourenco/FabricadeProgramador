@@ -19,52 +19,58 @@ class Gerenciador {
             let sexo = document.querySelector('[type=radio]:checked').value
             
             let tabela = document.getElementById("tabela")
-
+            
+            if (this.editar == null){
             // let linha = document.createElement('tr')
             // comando altera a criaçao do elemento por objeto
             let linha = tabela.insertRow()
             linha.setAttribute('id', 'linha-' + contador)
-
             // let colunaNome = document.createElement('td')
             // let colunaIdade = document.createElement('td')
             // let colunaSexo = document.createElement('td')
             // let colunaExcluir = document.createElement('td')
             // let colunaEditar = document.createElement('td')
-                // SUBSTITUIR
+            // SUBSTITUIR
             let colunaNome =  linha.insertCell(0)
             let colunaIdade = linha.insertCell(1)
             let colunaSexo = linha.insertCell(2)
             let colunaExcluir = linha.insertCell(3)
             let colunaEditar = linha.insertCell(4)
-
-
-
+            
+            
+            
             colunaNome.innerText = nomeConvidado
             colunaIdade.innerText = idadeConvidado
             colunaSexo.innerText = sexo
-
+            
             let imgExcluir = document.createElement('img')
             imgExcluir.setAttribute('src', 'img/lixeira.svg')
             imgExcluir.setAttribute('onclick', "gerenciador.remover('linha-" + contador + "')")
             imgExcluir.classList.add('imagem')
-
+            
             let imagemEditar = document.createElement('img')
             imagemEditar.setAttribute('src', 'img/editar.svg')
             imagemEditar.setAttribute('onclick', "gerenciador.editar('linha-" + contador + "')")
             imagemEditar.classList.add('imagem')
-
+            
             colunaExcluir.appendChild(imgExcluir)
             colunaEditar.appendChild(imagemEditar)
-
+            
             // linha.appendChild(colunaNome)
             // linha.appendChild(colunaIdade)
             // linha.appendChild(colunaSexo)
             // linha.appendChild(colunaEditar)
             // linha.appendChild(colunaExcluir)
-
+            
             // tabela.appendChild(linha)
-
-            contador++
+            
+            this.contador++
+        }else{
+            let elementoEdicao = document.getElementById(this.elementoEditar)
+            elementoEdicao.children[0].innerText = convidadoRetornado.nome;
+            elementoEdicao.children[1].innerText = convidadoRetornado.idade;
+            elementoEdicao.children[2].innerText = convidadoRetornado.sexo;
+        }
 
             this.limpar()
         }
@@ -74,13 +80,23 @@ class Gerenciador {
         document.getElementById(id).remove()
     }
 
-    editar(id) {
+    editar(id, nome, idade, sexo) {
+        this.elementoEditar = id;
         // Busca o elemento a ser editado pelo id recebido e salva a referência na varial global elementoEditar
-        elementoEditar = document.getElementById(id)
+        // elementoEditar = document.getElementById(id)
         //Pega o texto dentro do span que é o primeiro filho (posição 0) da div linha (elementoEditar)
         //Adiciona o valor no inputConvidado
-        document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
-        document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
+        // document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
+        // document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
+        // document.getElementById('fem').value = elementoEditar.children[2].textContent
+        document.getElementById("inputConvidado").value = nome;
+        document.getElementById("inputIdade").value = idade;
+        if (sexo == "F"){
+            document.getElementById("fem").checked = true;
+        }else{
+            document.getElementById("masc").checked = true;
+        }
+
     }
 
     validar() {
