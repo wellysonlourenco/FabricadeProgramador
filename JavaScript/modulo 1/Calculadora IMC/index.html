@@ -5,35 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculadora IMC</title>
-
-<script>
-    function Calcular(){
-        var n1 = parseFloat(document.getElementById("input1").value)
-        var n2 = parseFloat(document.getElementById("input2").value)
-
-     
-        var resultado = n1/(n2*n2)
-            if (resultado < 18.5 ) {
-            alert("Você está magro com esse indice: " + resultado); }
-            }
-            else (resultado>= 18.5 && resultado <= 25){
-            alert("Você está normal com esse indice: " + resultado);
-            }
-            else (resultado> 25 && resultado <= 29.9){
-            alert("Você está com sobre peso com esse indice: " + resultado);
-            }
-            else (resultado > 29.9 && resultado <= 39.9){
-            alert("Você está com obesidade com esse indice: " + resultado);
-            }
-            else (resultado > 39.9){
-            alert("Você estácom obesidade grave com esse indice: " + resultado);
-            }
-}
+    <link rel="stylesheet" href="./css/estilo.css">
+    <script src="./js/calcular.js"></script>  
+    
 
 
-</script>
-
-<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="calculadora">
@@ -50,7 +26,8 @@
                 <input type="number" name="numero1" id="input2" placeholder="em metros">
             </div>
             <div>
-                <button type="button" onclick="window.Calcular()">Calcular IMC</button>
+                <button type="button" onclick="imc.Calcular()">Calcular IMC</button>
+                <button type="button" onclick="imc.classificacao()">Classificação</button>
             </div>
         </form>
     </div>
