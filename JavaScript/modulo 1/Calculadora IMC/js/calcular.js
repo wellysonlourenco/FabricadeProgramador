@@ -1,8 +1,6 @@
-Class IMC {
+class IMC {
 
-Calcular(){
-    let ehValido = this.validar()
-
+    Calcular(){
     var n1 = parseFloat(document.getElementById("input1").value)
     var n2 = parseFloat(document.getElementById("input2").value)
 
@@ -22,10 +20,10 @@ Calcular(){
         if (resultado > 39.9){
         alert("Você estácom obesidade grave com esse indice: " + resultado);
         }
-        this.limpar()
+        
     }
 
-    Classificacao () {
+    classificacao () {
         
         var resultado = this.Calcular()
         var resultado = parseFloat(document.getElementById('resultado'))
@@ -55,8 +53,8 @@ Calcular(){
     
 
     limpar() {
-        // document.getElementById('input1').value = ''
-        // document.getElementById('input2').value = ''
+        document.getElementById('input1').value = ''
+        document.getElementById('input2').value = ''
 
     }
 
@@ -64,4 +62,4 @@ Calcular(){
 
     }
 }
-let imc = new IMC()
+var calcular = new IMC()
