@@ -9,25 +9,27 @@
 </head>
 
 <body>
-    <h1>Calculadora IMC</h1>
+    <div class="calculadora">
+        <h1>Calculadora IMC</h1>
 
-    <div>
-            <label for="peso">Peso:</label>
-            <label for="altura">Altura:</label>
-    </div>
+        <div>
+                <label for="peso">Peso:</label>
+                <label for="altura">Altura:</label>
+        </div>
 
-    <div>
-            <input type="number" name="peso" id="peso" placeholder="em kg">
-            <input type="number" name="altura" id="altura" placeholder="em metros">
-    </div>
-    <div>
-    <button type="button" onclick="calculadora.calcularIMC()">Calcular IMC</button>
-    <button type="button" onclick="calculadora.classificar()">Classificar</button>
-    <button type="button" onclick="calculadora.limpar()">Limpar</button>
-    </div>
-    <div>
-        <span id="resultadoIMC"></span>
-        <span id="resultadoClassificacao"></span>
+        <div>
+                <input type="number" name="peso" id="peso" placeholder="em kg">
+                <input type="number" name="altura" id="altura" placeholder="em metros">
+        </div>
+        <div>
+        <button type="button" onclick="calculadora.calcularIMC()">Calcular IMC</button>
+        <button type="button" onclick="calculadora.classificar()">Classificar</button>
+        <button type="button" onclick="calculadora.limpar()">Limpar</button>
+        </div>
+        <div>
+            <span id="resultadoIMC"></span>
+            <span id="resultadoClassificacao"></span>
+        </div>
     </div>
 </body>
 
