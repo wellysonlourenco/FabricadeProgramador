@@ -1,0 +1,25 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.calculadora {
+    width: 50%;
+    
+}
+
+
+.calculadora div{
+    text-align: center;
+
+}
+
+.calculadora label{
+    margin: auto;
+    padding: 0px 70px 0px 70px;
+}
+
+.calculadora input {
+    margin: 2px 0px 10px 0px;
+}
