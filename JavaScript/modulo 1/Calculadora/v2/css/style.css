@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+  
+}
+
+.calculadora {
+    width: 40%;
+    margin: auto;
+    background-color: rgb(147, 147, 248);
+    margin-top: 50px;
+    border-radius: 5px;
+    padding: 40px;
+        
+}
+
+.calculadora div{
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+
+.calculadora h1 {
+    margin-top: -10px 0px 0px 0px;
+    color: white;
+    font-weight: 100%;
+    
+}
+
+.calculadora label{
+    color: white;
+    
+}
+
+.calculadora input {
+    
+}
