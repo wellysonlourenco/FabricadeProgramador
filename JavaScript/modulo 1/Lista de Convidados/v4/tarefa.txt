@@ -1,0 +1,7 @@
+MUDANÇAS DA LISTA v3 PARA A v4
+
+* Colocar contador e ElementoEditar como atributos da Classe Gerenciador ;
+
+* Criar método LerDados() que deverá extrair os dados dos inputs e reotnar um objeto com os dados;
+
+* criar método inserirLinha que recebe como parametro um objeto com os dados;

@@ -1,16 +1,66 @@
-//Variável "global" para manter o valor do contador
-var contador = 0
-//Variável "global" para manter o elemento de edição ou null caso não seja uma edição
-var elementoEditar = null
-
 class Gerenciador {
 
-    //Méltodo responsável por adicionar uma nova div na lista contendo o convidado e suas ações
-    salvar() {
+    constructor() {
+        this.contador = 0;
+        this.elementoEditar = null;
+    }
 
+    lerDados(){
+        let nomeConvidado = document.getElementById("inputConvidado").value;
+        let idadeConvidado = document.getElementById("inputIdade").value;
+        let sexo = document.querySelector('[type=radio]:checked').value;
+
+        let convidado  = {}
+        
+        if (sexo != null){
+            convidado.sexo = sexo.value;
+        }else{
+            convidado.sexo = ""
+        }
+        
+        convidado.nome = nomeConvidado;
+        convidado.idade = idadeConvidado;
+        
+        return convidado;
+        
+    }
+
+    validar() {
+        let mensagem = "",
+
+        if (convidado.nome == ""){
+            mensagem += "O campo nome do convidado é obrigatório! \n"
+        }
+
+        if (convidado.idade == ""){
+            mensagem += "Campo idade obrigatório!\n"
+        }
+
+        if (convidado.sexo == ""){
+            mensagem += "Campo sexo é obrigatório!\n"
+        }
+
+        if (mensagem = "" ){
+            return true;
+        }
+
+        alert (mensagem)
+            return false;
+    
+
+
+
+
+
+    }
+    
+    
+
+    salvar() {
+        
         //Variável "ehValido" recebe o retorno da função validar.
         let ehValido = this.validar()
-
+        
         //Verifica de o valor retornado é verdadeiro, ou seja, o campo com nome foi digitado
         if (ehValido) {
             //variável contendo o valor do input
@@ -21,15 +71,15 @@ class Gerenciador {
             let tabela = document.getElementById("tabela")
             
             if (this.editar == null){
-            // let linha = document.createElement('tr')
-            // comando altera a criaçao do elemento por objeto
-            let linha = tabela.insertRow()
-            linha.setAttribute('id', 'linha-' + contador)
-            // let colunaNome = document.createElement('td')
-            // let colunaIdade = document.createElement('td')
-            // let colunaSexo = document.createElement('td')
-            // let colunaExcluir = document.createElement('td')
-            // let colunaEditar = document.createElement('td')
+                // let linha = document.createElement('tr')
+                // comando altera a criaçao do elemento por objeto
+                let linha = tabela.insertRow()
+                linha.setAttribute('id', 'linha-' + contador)
+                // let colunaNome = document.createElement('td')
+                // let colunaIdade = document.createElement('td')
+                // let colunaSexo = document.createElement('td')
+                // let colunaExcluir = document.createElement('td')
+                // let colunaEditar = document.createElement('td')
             // SUBSTITUIR
             let colunaNome =  linha.insertCell(0)
             let colunaIdade = linha.insertCell(1)
@@ -99,30 +149,6 @@ class Gerenciador {
 
     }
 
-    validar() {
-        //Pega o texto de dentro do inputConvidado
-        let nomeConvidado = document.getElementById('inputConvidado').value
-        let idadeConvidado = document.getElementById('inputIdade').value
-
-
-        //Verifica se foi digitado o nome no input
-        if (nomeConvidado == "") {
-            alert("Digite o nome do convidado!")
-            return false
-        }
-
-        if (idadeConvidado == "") {
-            alert("Digite a idade do convidado!")
-            return false
-        }
-
-        if(document.getElementById("masc").checked == false && document.getElementById("fem").checked == false){
-            alert("Selecione o sexo do convidado")
-            return false
-        }
-
-        return true
-    }
 
     limpar() {
         //Seta o texto de dentro do input "inputConvidado" para vazio
