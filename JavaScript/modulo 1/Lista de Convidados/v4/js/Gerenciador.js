@@ -1,21 +1,24 @@
 class Gerenciador {
-    
+
     constructor() {
         this.contador = 0
         this.elementoEditar = null
     }
 
-    
+    lerDados() {
+        let convidado = {}
 
+        convidado.nome = document.getElementById('inputConvidado').value
+        convidado.idade = document.getElementById('inputIdade').value
+        convidado.sexo = document.querySelector('[type=radio]:checked').value
 
+        return convidado
+    }
 
-    inserirLinha(convidado){
-        convidado.id = contador
-
+    inserirLinha(convidado) {
         let tabela = document.getElementById("tabela")
 
-        
-        let linha = tabela.insertRow(convidado.id)
+        let linha = tabela.insertRow()
         linha.setAttribute('id', convidado.id)
 
         let colunaId = linha.insertCell(0)
@@ -25,116 +28,85 @@ class Gerenciador {
         let colunaExcluir = linha.insertCell(4)
         let colunaEditar = linha.insertCell(5)
 
-        colunaId.innerText = convidado.id   
+        colunaId.innerText = convidado.id
         colunaNome.innerText = convidado.nome
         colunaIdade.innerText = convidado.idade
         colunaSexo.innerText = convidado.sexo
 
         let imgExcluir = document.createElement('img')
         imgExcluir.setAttribute('src', 'img/lixeira.svg')
-        imgExcluir.setAttribute('onclick', "gerenciador.remover('linha-" + convidado.id + "')")
+        imgExcluir.setAttribute('onclick', "gerenciador.remover('" + convidado.id + "')")
         imgExcluir.classList.add('imagem')
 
         let imagemEditar = document.createElement('img')
         imagemEditar.setAttribute('src', 'img/editar.svg')
-        imagemEditar.setAttribute('onclick', "gerenciador.editar('linha-" + convidado.id + "')")
+        imagemEditar.setAttribute('onclick', "gerenciador.editar('" + convidado.id + "')")
         imagemEditar.classList.add('imagem')
 
         colunaExcluir.appendChild(imgExcluir)
         colunaEditar.appendChild(imagemEditar)
-
-
     }
 
+    salvarEdicao(convidado){
 
-    lerDados(){
-    
-        let convidado = {}
-
-        convidado.nome = document.getElementById('inputConvidado').value
-        convidado.idade = document.getElementById('inputIdade').value
-        convidado.sexo = document.querySelector('[type=radio]:checked').value
-
-    return convidado        
+        this.elementoEditar.children[1].innerText = convidado.nome
+        this.elementoEditar.children[2].innerText = convidado.idade
+        this.elementoEditar.children[3].innerText = convidado.sexo
     }
-    
-    
-    
 
-    
+    //Méltodo responsável por adicionar uma nova div na lista contendo o convidado e suas ações
+    salvar() {
 
-    salvar(convidado) {
-        this.contador.lerDados
-        
+        let convidado = this.lerDados()
 
+        let valido = this.validar(convidado)
 
-        if (ehValido){
-            if(this.elementoEditar == null){
+        if (valido) {
+
+            if (this.elementoEditar == null) {
+                convidado.id = "convidado-" + this.contador
+
                 this.inserirLinha(convidado)
-                this.limpar()
-                contador++
+                this.contador++
+            } else {
+                this.salvarEdicao(convidado)
+                this.elementoEditar = null
             }
 
+            this.limpar()
         }
-
-        let ehValido = this.validar()
-
-
-        
-        // elementoEditar.children[0].innerText = nomeConvidado
-        // elementoEditar.children[1].innerText = idadeConvidado
-        // elementoEditar.children[2].innerText = sexo
-        // elementoEditar = null
-        }
-
-            //Verifica de o valor retornado é verdadeiro, ou seja, o campo com nome foi digitado
-            if (ehValido) {
     }
+
     remover(id) {
         document.getElementById(id).remove()
     }
 
-
-
-
     editar(id) {
-        // Busca o elemento a ser editado pelo id recebido e salva a referência na varial global elementoEditar
-        elementoEditar = document.getElementById(id)
-        //Pega o texto dentro do span que é o primeiro filho (posição 0) da div linha (elementoEditar)
-        //Adiciona o valor no inputConvidado
-        document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
-        document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
+        this.elementoEditar = document.getElementById(id)
 
-        let sx = elementoEditar.children[2].textContent
+        document.getElementById("inputConvidado").value = this.elementoEditar.children[1].textContent
+        document.getElementById('inputIdade').value = this.elementoEditar.children[2].textContent
 
-        if (sx == "F") {
-            document.getElementById("fem").checked = true
-            document.getElementById("masc").checked = false
-        } else {
+        if (this.elementoEditar.children[3].textContent == "M") {
             document.getElementById("masc").checked = true
-            document.getElementById("fem").checked = false
+        } else {
+            document.getElementById("fem").checked = true
         }
     }
 
+    validar(convidado) {
 
-    validar() {
-        //Pega o texto de dentro do inputConvidado
-        let nomeConvidado = document.getElementById('inputConvidado').value
-        let idadeConvidado = document.getElementById('inputIdade').value
-
-
-        //Verifica se foi digitado o nome no input
-        if (nomeConvidado == "") {
+        if (convidado.nome == "") {
             alert("Digite o nome do convidado!")
             return false
         }
 
-        if (idadeConvidado == "") {
+        if (convidado.idade == "") {
             alert("Digite a idade do convidado!")
             return false
         }
 
-        if (document.getElementById("masc").checked == false && document.getElementById("fem").checked == false) {
+        if (convidado.sexo == null) {
             alert("Selecione o sexo do convidado")
             return false
         }
