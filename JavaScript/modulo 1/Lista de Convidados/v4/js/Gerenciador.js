@@ -1,160 +1,152 @@
 class Gerenciador {
-
+    
     constructor() {
-        this.contador = 0;
-        this.elementoEditar = null;
+        this.contador = 0
+        this.elementoEditar = null
     }
+
+    
+
+
+
+    inserirLinha(convidado){
+        convidado.id = contador
+
+        let tabela = document.getElementById("tabela")
+
+        
+        let linha = tabela.insertRow(convidado.id)
+        linha.setAttribute('id', convidado.id)
+
+        let colunaId = linha.insertCell(0)
+        let colunaNome = linha.insertCell(1)
+        let colunaIdade = linha.insertCell(2)
+        let colunaSexo = linha.insertCell(3)
+        let colunaExcluir = linha.insertCell(4)
+        let colunaEditar = linha.insertCell(5)
+
+        colunaId.innerText = convidado.id   
+        colunaNome.innerText = convidado.nome
+        colunaIdade.innerText = convidado.idade
+        colunaSexo.innerText = convidado.sexo
+
+        let imgExcluir = document.createElement('img')
+        imgExcluir.setAttribute('src', 'img/lixeira.svg')
+        imgExcluir.setAttribute('onclick', "gerenciador.remover('linha-" + convidado.id + "')")
+        imgExcluir.classList.add('imagem')
+
+        let imagemEditar = document.createElement('img')
+        imagemEditar.setAttribute('src', 'img/editar.svg')
+        imagemEditar.setAttribute('onclick', "gerenciador.editar('linha-" + convidado.id + "')")
+        imagemEditar.classList.add('imagem')
+
+        colunaExcluir.appendChild(imgExcluir)
+        colunaEditar.appendChild(imagemEditar)
+
+
+    }
+
 
     lerDados(){
-        let nomeConvidado = document.getElementById("inputConvidado").value;
-        let idadeConvidado = document.getElementById("inputIdade").value;
-        let sexo = document.querySelector('[type=radio]:checked').value;
-
-        let convidado  = {}
-        
-        if (sexo != null){
-            convidado.sexo = sexo.value;
-        }else{
-            convidado.sexo = ""
-        }
-        
-        convidado.nome = nomeConvidado;
-        convidado.idade = idadeConvidado;
-        
-        return convidado;
-        
-    }
-
-    validar() {
-        let mensagem = "",
-
-        if (convidado.nome == ""){
-            mensagem += "O campo nome do convidado é obrigatório! \n"
-        }
-
-        if (convidado.idade == ""){
-            mensagem += "Campo idade obrigatório!\n"
-        }
-
-        if (convidado.sexo == ""){
-            mensagem += "Campo sexo é obrigatório!\n"
-        }
-
-        if (mensagem = "" ){
-            return true;
-        }
-
-        alert (mensagem)
-            return false;
     
+        let convidado = {}
 
+        convidado.nome = document.getElementById('inputConvidado').value
+        convidado.idade = document.getElementById('inputIdade').value
+        convidado.sexo = document.querySelector('[type=radio]:checked').value
 
-
-
-
+    return convidado        
     }
     
     
+    
 
-    salvar() {
+    
+
+    salvar(convidado) {
+        this.contador.lerDados
         
-        //Variável "ehValido" recebe o retorno da função validar.
+
+
+        if (ehValido){
+            if(this.elementoEditar == null){
+                this.inserirLinha(convidado)
+                this.limpar()
+                contador++
+            }
+
+        }
+
         let ehValido = this.validar()
+
+
         
-        //Verifica de o valor retornado é verdadeiro, ou seja, o campo com nome foi digitado
-        if (ehValido) {
-            //variável contendo o valor do input
-            let nomeConvidado = document.getElementById('inputConvidado').value
-            let idadeConvidado = document.getElementById('inputIdade').value
-            let sexo = document.querySelector('[type=radio]:checked').value
-            
-            let tabela = document.getElementById("tabela")
-            
-            if (this.editar == null){
-                // let linha = document.createElement('tr')
-                // comando altera a criaçao do elemento por objeto
-                let linha = tabela.insertRow()
-                linha.setAttribute('id', 'linha-' + contador)
-                // let colunaNome = document.createElement('td')
-                // let colunaIdade = document.createElement('td')
-                // let colunaSexo = document.createElement('td')
-                // let colunaExcluir = document.createElement('td')
-                // let colunaEditar = document.createElement('td')
-            // SUBSTITUIR
-            let colunaNome =  linha.insertCell(0)
-            let colunaIdade = linha.insertCell(1)
-            let colunaSexo = linha.insertCell(2)
-            let colunaExcluir = linha.insertCell(3)
-            let colunaEditar = linha.insertCell(4)
-            
-            
-            
-            colunaNome.innerText = nomeConvidado
-            colunaIdade.innerText = idadeConvidado
-            colunaSexo.innerText = sexo
-            
-            let imgExcluir = document.createElement('img')
-            imgExcluir.setAttribute('src', 'img/lixeira.svg')
-            imgExcluir.setAttribute('onclick', "gerenciador.remover('linha-" + contador + "')")
-            imgExcluir.classList.add('imagem')
-            
-            let imagemEditar = document.createElement('img')
-            imagemEditar.setAttribute('src', 'img/editar.svg')
-            imagemEditar.setAttribute('onclick', "gerenciador.editar('linha-" + contador + "')")
-            imagemEditar.classList.add('imagem')
-            
-            colunaExcluir.appendChild(imgExcluir)
-            colunaEditar.appendChild(imagemEditar)
-            
-            // linha.appendChild(colunaNome)
-            // linha.appendChild(colunaIdade)
-            // linha.appendChild(colunaSexo)
-            // linha.appendChild(colunaEditar)
-            // linha.appendChild(colunaExcluir)
-            
-            // tabela.appendChild(linha)
-            
-            this.contador++
-        }else{
-            let elementoEdicao = document.getElementById(this.elementoEditar)
-            elementoEdicao.children[0].innerText = convidadoRetornado.nome;
-            elementoEdicao.children[1].innerText = convidadoRetornado.idade;
-            elementoEdicao.children[2].innerText = convidadoRetornado.sexo;
+        // elementoEditar.children[0].innerText = nomeConvidado
+        // elementoEditar.children[1].innerText = idadeConvidado
+        // elementoEditar.children[2].innerText = sexo
+        // elementoEditar = null
         }
 
-            this.limpar()
-        }
+            //Verifica de o valor retornado é verdadeiro, ou seja, o campo com nome foi digitado
+            if (ehValido) {
     }
-
     remover(id) {
         document.getElementById(id).remove()
     }
 
-    editar(id, nome, idade, sexo) {
-        this.elementoEditar = id;
+
+
+
+    editar(id) {
         // Busca o elemento a ser editado pelo id recebido e salva a referência na varial global elementoEditar
-        // elementoEditar = document.getElementById(id)
+        elementoEditar = document.getElementById(id)
         //Pega o texto dentro do span que é o primeiro filho (posição 0) da div linha (elementoEditar)
         //Adiciona o valor no inputConvidado
-        // document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
-        // document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
-        // document.getElementById('fem').value = elementoEditar.children[2].textContent
-        document.getElementById("inputConvidado").value = nome;
-        document.getElementById("inputIdade").value = idade;
-        if (sexo == "F"){
-            document.getElementById("fem").checked = true;
-        }else{
-            document.getElementById("masc").checked = true;
-        }
+        document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
+        document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
 
+        let sx = elementoEditar.children[2].textContent
+
+        if (sx == "F") {
+            document.getElementById("fem").checked = true
+            document.getElementById("masc").checked = false
+        } else {
+            document.getElementById("masc").checked = true
+            document.getElementById("fem").checked = false
+        }
     }
 
+
+    validar() {
+        //Pega o texto de dentro do inputConvidado
+        let nomeConvidado = document.getElementById('inputConvidado').value
+        let idadeConvidado = document.getElementById('inputIdade').value
+
+
+        //Verifica se foi digitado o nome no input
+        if (nomeConvidado == "") {
+            alert("Digite o nome do convidado!")
+            return false
+        }
+
+        if (idadeConvidado == "") {
+            alert("Digite a idade do convidado!")
+            return false
+        }
+
+        if (document.getElementById("masc").checked == false && document.getElementById("fem").checked == false) {
+            alert("Selecione o sexo do convidado")
+            return false
+        }
+
+        return true
+    }
 
     limpar() {
         //Seta o texto de dentro do input "inputConvidado" para vazio
         document.getElementById('inputConvidado').value = ''
         document.getElementById('inputIdade').value = ''
-        
+
         document.getElementById("fem").checked = false
         document.getElementById("masc").checked = false
     }
@@ -162,247 +154,3 @@ class Gerenciador {
 
 //Instanciando o objeto da classe Gerenciador
 let gerenciador = new Gerenciador()
-
-
-
-
-
-
-
-
-
-// //Variável "global" para manter o valor do contador
-// var contador = 0
-// //Variável "global" para manter o elemento de edição ou null caso não seja uma edição
-// var elementoEditar = null
-
-// class Gerenciador {
-
-//     //Méltodo responsável por adicionar uma nova div na lista contendo o convidado e suas ações
-//     salvar() {
-
-//         //Variável "ehValido" recebe o retorno da função validar.
-//         let ehValido = this.validar()
-
-//         //Verifica de o valor retornado é verdadeiro, ou seja, o campo com nome foi digitado
-//         if (ehValido) {
-//             //variável contendo o valor do input
-//             let nomeConvidado = document.getElementById('inputConvidado').value
-//             let idadeConvidado= document.getElementById('inputIdade').value
-//             let sexo = document.querySelector('[type=radio]:checked').value
-
-//             let tabela = document.getElementById("tabela")
-
-//             let linha = document.createElement('tr')
-//             linha.setAttribute('id', 'linha-' + contador)
-            
-//             let colunaNome = document.createElement('td')
-//             let colunaIdade = document.createElement('td')
-//             let colunaSexo = document.createElement('td')
-//             let colunaExluir = document.createElement('td')
-//             let colunaEditar = document.createElement('td')
-
-//             // vai receber o nome
-//             colunaNome.innerText = nomeConvidado
-//             colunaIdade.innerText= idadeConvidado
-//             colunaSexo.innerText = sexo
-            
-
-//             let imgExcluir = document.createElement('img')
-//             imgExcluir.setAttribute('scr','img/lixeira.svg')
-//             imgExcluir.setAttribute('onclick', "gerenciador.remover('linha-" + contador +"')")
-//             imgExcluir.classList.add('imagem')
-
-//             let imgEditar = document.createAttribute('img')
-//             imgEditar.setAttribute('scr', 'img/editar.svg')
-//             imgEditar.setAttribute('onclick', "gerenciador.editar('linha-" + contador + "')")
-//             imagemEditar.classList.add('imagem')
-
-//             colunaExcluir.appendChild(imgExcluir)
-//             colunaEditar.appendChild(imagemEditar)
-
-//             // coluna é filha da linha
-//             linha.appendChild(colunaNome)
-//             linha.appendChild(colunaIdade)
-//             linha.appendChild(colunaSexo)
-
-//             linha.appendChild(colunaExcluir)
-//             linha.appendChild(colunaEditar)
-
-//             // linha é filha da tabela
-//             tabela.appendChild(linha)
-
-//             contador++
-//             this.limpar()
-//         }
-//     }
-
-//     remover(id) {
-//         document.getElementById(id).remove()
-//     }
-
-//     editar(id) {
-//         // Busca o elemento a ser editado pelo id recebido e salva a referência na varial global elementoEditar
-//         elementoEditar = document.getElementById(id)
-//         //Pega o texto dentro do span que é o primeiro filho (posição 0) da div linha (elementoEditar)
-//         //Adiciona o valor no inputConvidado
-//         document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
-//         document.getElementById('inputIdade').value = elementoEditar.children[1].textContent
-    
-//     }
-
-//     validar() {
-//         //Pega o texto de dentro do inputConvidado
-//         let nomeConvidado = document.getElementById('inputConvidado').value
-//         let idadeConvidado = document.getElementById("inputIdade").value
-        
-//         //Verifica se foi digitado o nome no input
-//         if (nomeConvidado == "") {
-//             alert("Digite o nome do convidado!")
-//             return false
-//         }
-
-//         if (idadeConvidado == ""){
-//             alert("Digite a idade do convidado!")
-//             return false
-//         }
-
-//         if (document.getElementById("masc").checked == false && document.getElementById("fem").checked == false){
-//             alert("Selecione o sexo do convidado!")
-//             return false
-//         }
-
-//         return true
-//     }
-
-//     limpar() {
-//         //Seta o texto de dentro do input "inputConvidado" para vazio
-//         document.getElementById('inputConvidado').value = ''
-//         document.getElementById('inputIdade').value = ''
-
-//         document.getElementById("fem").checked = false
-//         document.getElementById("masc").checked = false
-//     }
-// }
-
-// //Instanciando o objeto da classe Gerenciador
-// let gerenciador = new Gerenciador()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //Variável "global" para manter o valor do contador
-// var contador = 0
-// //Variável "global" para manter o elemento de edição ou null caso não seja uma edição
-// var elementoEditar = null
-
-// class Gerenciador {
-//     salvar() {
-        
-//         //Variável "ehValido" recebe o retorno da função validar.
-//         let Ehvalido = this.validar()
-
-//         if (Ehvalido){
-        
-//         let nomeConvidado = document.getElementById('inputConvidado').value
-        
-//         //colocar o nome na lista
-//         let div = document.createElement("div")
-//         div.innerText = nomeConvidado
-//         div.classList.add("div")
-//         div.setAttribute("id","div-" + contador)
-        
-//         let img = document.createElement("img")
-        
-        
-        
-//         let remover = document.createElement("img")
-//         remover.setAttribute('src',"img/lixeira.svg")
-//         remover.setAttribute('onclick',"gerenciador.remover('div-" +contador+ "' )")
-//         remover.classList.add("imagem")
-//         div.appendChild(remover)
-
-//         let editar = document.createElement("img")
-//         editar.setAttribute('src',"img/editar.svg" )
-//         editar.setAttribute('onclick', "gerenciador.editar('div- " +contador+ "' ) " )
-//         div.appendChild(editar)  
-//         editar.classList.add("imagem")
-        
-
-//         document.getElementById("lista").appendChild(div)
-//         contador++;
-
-          
-//         this.limpar()
-//         }
-//     }
-    
-//     remover(id){
-//         document.getElementById(id).remove()
-            
-//     }
-
-//     editar(id){
-//         document.getElementById(id).editar()
-
-//     }
-    
-    
-//     validar() {
-//         let nomeConvidado = document.getElementById('inputConvidado').value
-//         if (nomeConvidado == "") {
-//             alert("Digite o nome do convidado!")
-//             return false
-//         } 
-//         return true
-//     }
-    
-    
-//     limpar() {
-//         document.getElementById('inputConvidado').value = ''
-//     }
-
-
-
-// }
-// let gerenciador = new Gerenciador()
