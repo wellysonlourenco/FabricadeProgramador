@@ -1,6 +1,6 @@
 function imprimirNumeros(){
     
-    let qtde = document.getElementById("quantidade").nodeValue
+    let qtde = document.getElementById("quantidade").Value
     let span = document.getElementById("resultado")
     let numeros = ""
 
@@ -12,7 +12,7 @@ function imprimirNumeros(){
         for (let i = 1; i <= numeroInteiro; i++){
             numeros += i + " "     // numero = numero + i + " "
         }
-        span.innerText = i + " "
+        span.innerText = numeros
     }
     
 
