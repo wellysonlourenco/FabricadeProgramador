@@ -1,35 +1,36 @@
-class GerenciadorLista{
+class GerenciadorLista {
 
-    constructor(){
+    constructor() {
         this.lista = []
-        this.contador = 0
+        this.contador = 1
     }
 
-    lerDados(){
-        let convidado= {}
+    lerDados() {
+        let convidado = {}
 
-        convidado.nome = document.getElementById("inputConvidado").value 
-        convidado.idade = document.getElementById("inputIdade").value 
+        convidado.nome = document.getElementById("inputConvidado").value
+        convidado.idade = document.getElementById("inputIdade").value
         convidado.sexo = document.querySelector('[type=radio]:checked').value
 
         return convidado
     }
 
-    validar(convidado){
-        if (convidado.nome != "" && convidado.idade != "" && convidado.sexo != null){
-            alert("Preencha todos os campos!")
+    validar(convidado) {
+        if (convidado.nome != "" && convidado.idade != "" && convidado.sexo != null) {
+            return true
+        } else {
             return false
-            } else { 
-                return true
         }
     }
 
-    gerarTabela(){
-        let tabela = document.getElementById("tabela")
+    gerarTabela() {
 
-        for(let i = 0 ; i < this.lista.length ; i++ ){
+        let tabela  = document.getElementById("tabela")
+        tabela.innerText = ""
 
-            let linha = tabela.insertRow()
+        for(let i = 0; i < this.lista.length; i++){
+
+            let linha  = tabela.insertRow()
 
             let colunaId = linha.insertCell(0)
             let colunaNome = linha.insertCell(1)
@@ -42,54 +43,44 @@ class GerenciadorLista{
             colunaNome.innerText = this.lista[i].nome
             colunaIdade.innerText = this.lista[i].idade
             colunaSexo.innerText = this.lista[i].sexo
-            
+
 
             let imgEditar = document.createElement('img')
-            imgEditar.setAttribute('src' , 'img/editar.svg')
-            imgEditar.setAttribute('onclick', "gerenciador.editar('" + this.lista[i].id + "')")
-            
+            imgEditar.setAttribute('src', 'img/editar.svg')
+            imgEditar.setAttribute('onclick', "gerenciador5.editar('" + this.lista[i].id + "')")
+
             let imgRemover = document.createElement('img')
-                imgRemover.setAttribute('src' , 'img/lixeira.svg')
-                imgRemover.setAttribute('onclick', "gerenciador.remover('" + this.lista[i].id + "')")
-            
+            imgRemover.setAttribute('src', 'img/lixeira.svg')
+            imgRemover.setAttribute('onclick', "gerenciador5.remover('" + this.lista[i].id + "')")
+
             colunaEditar.appendChild(imgEditar)
             colunaRemover.appendChild(imgRemover)
         }
     }
 
-    limparCampos(){
-        // document.getElementById("imputConvidado").value = ""
-        // document.getElementById("inputIdade").value = ""
-        document.getElementById('inputConvidado').value = ''
-        document.getElementById('inputIdade').value = ''
-
-        // if ((document.querySelector('[type:radio]:checked')) != null){
-        //     document.querySelector('[type:radio]:checked').checked = false
-        // }
+    limparCampos() {
+        document.getElementById("inputConvidado").value = ""
+        document.getElementById("inputIdade").value = ""
+        if (document.querySelector('[type=radio]:checked') != null)
+            document.querySelector('[type=radio]:checked').checked = false
     }
 
-    editar(){
+    editar() {}
 
-    }
+    salvar() {
+        let convidado = this.lerDados()
 
-    salvar(){
-        let  convidado = this.lerDados()
-
-        if(this.validar(convidado)){ //salvando com a id (array)
+        if(this.validar(convidado)){
             convidado.id = this.contador
             this.lista.push(convidado)
-
             this.contador++
+
             this.gerarTabela()
         }
-
     }
 
-    remover(){
-
-    }
-
+    remover() {}
 
 }
 
-let gerenciador = new GerenciadorLista()
+let gerenciador5 = new GerenciadorLista()
