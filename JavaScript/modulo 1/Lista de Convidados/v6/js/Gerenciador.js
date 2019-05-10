@@ -3,6 +3,8 @@ class GerenciadorLista {
     constructor() {
         this.lista = []
         this.contador = 1
+        this.idEdicao = -1
+        
     }
 
     lerDados() {
@@ -43,15 +45,16 @@ class GerenciadorLista {
             colunaNome.innerText = this.lista[i].nome
             colunaIdade.innerText = this.lista[i].idade
             colunaSexo.innerText = this.lista[i].sexo
+            // colunaEditar.innerText = this.lista[i].
 
 
             let imgEditar = document.createElement('img')
             imgEditar.setAttribute('src', 'img/editar.svg')
-            imgEditar.setAttribute('onclick', "gerenciador5.editar('" + this.lista[i].id + "')")
+            imgEditar.setAttribute('onclick', "gerenciador.editar('" + this.lista[i].id + "')")
 
             let imgRemover = document.createElement('img')
             imgRemover.setAttribute('src', 'img/lixeira.svg')
-            imgRemover.setAttribute('onclick', "gerenciador5.remover('" + this.lista[i].id + "')")
+            imgRemover.setAttribute('onclick', "gerenciador.remover('" + this.lista[i].id + "')")
 
             colunaEditar.appendChild(imgEditar)
             colunaRemover.appendChild(imgRemover)
@@ -65,22 +68,72 @@ class GerenciadorLista {
             document.querySelector('[type=radio]:checked').checked = false
     }
 
-    editar() {}
+    editar(id) {
+        let posicao = -1
+       
+        for (let i = 0; i < this.lista.length; i++){
+            if(this.lista[i].id == id){
+                posicao = i
+            }
+        }
+
+        if(posicao != -1){
+            this.idEdicao = id
+            document.getElementById("inputConvidado").value = this.lista[posicao].nome
+            document.getElementById("inputIdade").value = this.lista[posicao].idade
+
+            if(this.lista[posicao].sexo == "M"){
+                document.getElementById("masc").checked = true
+            } else {
+                document.getElementById("fem").checked = true
+            }
+        }    
+
+    }
+
+   
+    
+    remover(id) {
+        let posicao = -1
+
+        for (let i = 0; i < this.lista.length; i++){
+            if(this.lista[i].id == id){
+                posicao = i
+            }
+        }
+
+        if(posicao != -1){
+            // splice (POSICAO, ELEMENTO_REMOVER, )
+            this.lista.splice(posicao, 1)
+            
+           
+        }
+    }
+
 
     salvar() {
         let convidado = this.lerDados()
 
         if(this.validar(convidado)){
+
+            if(this.idEdicao == -1){
             convidado.id = this.contador
             this.lista.push(convidado)
             this.contador++
-
+            }else{
+                for (let i = 0 ; this.lista.length; i++){
+                    if(this.lista[i].id == this.idEdicao){
+                        this.lista[i].nome = convidado.nome
+                        this.lista[i].idade = convidado.idade
+                        this.lista[i].sexo = convidado.sexo
+                    }
+                }
+        }
             this.gerarTabela()
         }
     }
 
-    remover() {}
 
 }
 
-let gerenciador5 = new GerenciadorLista()
+let gerenciador = new GerenciadorLista()
