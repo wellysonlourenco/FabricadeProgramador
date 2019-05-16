@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Lista de Carros</title>
+        <meta charset="UTF-8">
+        <script src="js/lista.js"></script>
+        <link rel="stylesheet" href="css/estilo.css">
+    </head>
+    <body>
+        <div>
+            <H1>Lista de Carros</H1>
+
+            <label for="marca">Marca</label>
+            <input type="text" id="inputMarca"  >
+
+            <label for="modelo">Modelo</label>
+            <input type="text" id="inputModelo" >
+
+            <label for="ano">Ano</label>
+            <input type="number" id="inputAno" >
+
+            <button type="button" onclick="gerenciador.adicionar()">Adicionar</button>
+            <button type="button" onclick="gerenciador.resultado()>Resultado</button>
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                        <tbody id="tabela">
+                </thead>
+            </table>
+           
+        </div>
+
+        <div>
+            <span id="novo"></span>
+            <span id="velho"></span>
+            <span id="media"></span>
+        </div>
+    </body>
+</html>
