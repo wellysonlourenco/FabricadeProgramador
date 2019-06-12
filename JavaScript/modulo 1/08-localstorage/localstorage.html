@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>Teste LocalStorage</title>
+    <meta charset="utf-8">
+
+
+    <script>
+        function inserir(){
+        // string STR
+        let obj = {
+            nome: "TESTE",
+            idade: 15
+        }
+
+        let objSTR = JSON.stringify(obj)
+
+        // let chaveSTR = document.getElementById("input").value
+        // let valorSTR = document.getElementById("input2").value
+
+
+
+        // localStorage.setItem(chaveSTR, valorSTR)
+        localStorage.setItem("objChave", objSTR)
+        alert("Valor adicionado ao Local Storage!")
+    }
+
+    function buscar(){
+        let objSTR = localStorage.getItem("objChave")
+
+        let obj = JSON.parse(objSTR)
+
+        alert(obj.idade)
+
+    }
+
+
+
+    </script>
+
+
+</head>
+
+<body>
+
+
+    <input type="text" id="input" placeholder="Digite a Chave">
+    <input type="text" id="input2" placeholder="Digite a Valor">
+    <button onclick="inserir()">Inserir na LS</button>
+    <button onclick="buscar()">Buscar no LS</button>
+
+</body>
+
+</html>

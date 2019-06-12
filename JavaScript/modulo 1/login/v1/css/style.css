@@ -1,0 +1,110 @@
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(https://iisc.im/wp-content/uploads/2015/07/space_11.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-top: 2%;
+}
+
+
+/* # fica no ID */
+#login form{
+    background-color: rgb(247, 247, 247);
+    width: 30%;
+    margin: auto;
+    padding: 40px; 
+    border-radius: 2%; 
+}
+
+
+#login input{
+/*margem interna no input */    
+    padding:  10px;
+/*margem externa no input*/
+    margin: 5px;
+    width: 100%;
+    
+}
+
+#login h1 {
+    text-align: center;
+    color: rgb(77, 77, 77);
+    
+}
+
+#login button{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(28, 94, 218);
+    color: white;
+    font-size: 12pt;
+    margin: 5px;
+}
+
+#login a{
+    text-decoration: none;
+    color: gray;
+
+}
+
+#login img{
+    width: 200px;
+    display: block;
+    margin: auto;
+}
+
+#link {
+    text-align: center;
+    font-size: 10pt;
+    padding: 5px;
+ /*margin : 5px 0px 5px 0px; */
+}
+
+
+#register {
+    background-color: rgb(247, 247, 247);
+    width: 30%;
+    margin: auto;
+    padding: 40px;
+    border-radius: 2%; 
+}
+
+#register input{
+    /*margem interna no input */    
+    padding:  10px;
+    /*margem externa no input*/
+    margin: 5px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.233);
+    }
+    
+#register h1 {
+    text-align: center;
+    color: rgb(77, 77, 77);
+    font-weight: 100;
+    }
+    
+#register button{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(28, 94, 218);
+    color: white;
+    font-size: 12pt;
+    margin: 5px;
+    }
+    
+#register a{
+    text-decoration: none;
+    color: gray;
+    
+    }
+    
+#register img{
+    width: 158px;
+    display: block;
+    margin: auto;
+    }
+

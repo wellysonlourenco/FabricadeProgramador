@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <title>Tela de Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/Gerenciador.js"></script>
+</head>
+<body>
+    <div id="login">
+        <form name="login">
+            <img src="imagem/logo.jpeg" alt="Fabrica de Programador">
+            <div>
+                <h1>Log in</h1>
+            </div>
+            <div>
+                <input type="text" name="nome" id="inputNome" placeholder="Nome do Usuário">
+            </div>
+            <div>
+                <input type="text"  name="usuario" id="inputUsuario" placeholder="Usuário"/>
+            </div>
+            <div>
+                <input type="password" name="senha" id="inputSenha" placeholder="Senha" />
+            </div>
+            <div>
+                <button onclick="gerenciador.loginUsuario()">Enviar</button>
+            </div>
+            <div id="link">
+                <a href="registro.html">Registrar</a> | <a href="recuperar.html">Esqueceu a senha?</a>
+            </div>
+        </form> 
+    </div>
+               
+
+</body>
+</html>

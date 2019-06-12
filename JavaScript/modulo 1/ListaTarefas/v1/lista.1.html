@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lista de Tarefas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/gerenciador.js"></script>
+</head>
+<body>
+    <div id="card1" class="card">
+
+        <div>
+            <h2>Adicionar Tarefa</h2>
+        </div>
+
+        <div>
+            <input id="inputToDo" type="text" placeholder="Nome da Tarefa...">
+            <img src="img/add.svg" alt="go" id="go" onclick="toDoController.salvar()">
+
+        </div>
+
+    <div class="card">
+        <table>
+            <tbody id="tabela">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> 
