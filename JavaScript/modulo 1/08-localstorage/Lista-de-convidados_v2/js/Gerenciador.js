@@ -19,12 +19,19 @@ class Gerenciador {
         return convidado
     }
 
-    buscarConvidadosLocalStorage(){
+    buscarDadosLocalStorage(){
         if(localStorage.getItem("convidados") == null){
             localStorage.setItem("convidados", "[]")
         }else{
             this.listaConvidados = JSON.parse(localStorage.getItem("convidados")) //converte string para JSON
             this.gerarLista()
+        }
+
+        if(localStorage.getItem("contador") == null){
+            localStorage.setItem("contador", "0")
+        }else{
+            this.contador = parseInt(localStorage.getItem("contador")) //converte string para JSON
+            
         }
     }
 
@@ -77,9 +84,12 @@ class Gerenciador {
                 this.listaConvidados.push(convidadoRetornado)
                 this.contador++
 
+                localStorage.setItem("contador", this.contador)
                 localStorage.setItem("convidados", JSON.stringify(this.listaConvidados))
             } else { //edicao  
-
+                this.elementoEditar.nome = convidadoRetornado.nome
+                localStorage.setItem("convidados", JSON.stringify(this.listaConvidados))
+                this.elementoEditar = null
 
             }
             this.limpar()
@@ -89,15 +99,31 @@ class Gerenciador {
     }
 
     remover(id) {
-        document.getElementById(id).remove()
+        let pos = -1
+        for(let i = 0; i < this.listaConvidados.length; i++){
+            if(this.listaConvidados[i].id == id){
+                pos = i
+
+            }
+        }
+        if (pos != -1){
+            this.listaConvidados.splice(pos, 1)
+            localStorage.setItem("convidados", JSON.stringify(this.listaConvidados))
+            this.gerarLista()
+        }
+
+        
     }
 
     editar(id) {
-        // Busca o elemento a ser editado pelo id recebido e salva a referência na varial global elementoEditar
-        elementoEditar = document.getElementById(id)
-        //Pega o texto dentro do span que é o primeiro filho (posição 0) da div linha (elementoEditar)
-        //Adiciona o valor no inputConvidado
-        document.getElementById("inputConvidado").value = elementoEditar.children[0].textContent
+        let pos = -1
+
+        for(let i = 0; i < this.listaConvidados.length; i++){
+            if(this.listaConvidados[i].id == id){
+                document.getElementById("inputConvidado").value = 
+                localStorage.setItem("convidados", JSON.stringify(this.listaConvidados))
+            }
+        }
     }
 
     validar() {
